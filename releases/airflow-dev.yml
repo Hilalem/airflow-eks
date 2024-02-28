@@ -17,7 +17,7 @@ spec:
         kind: HelmRepository
         name: apache-airflow
         namespace: flux-system
-  #https://github.com/apache/airflow/blob/main/chart/values.yaml
+  #chart values https://github.com/apache/airflow/blob/main/chart/values.yaml
   values:
     defaultAirflowTag: "2.8.1"
     airflowVersion: "2.8.1"
