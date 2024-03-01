@@ -36,4 +36,14 @@ spec:
       useHelmHooks: false
     migrateDatabaseJob:
       useHelmHooks: false
+    dags:
+      persistence:
+        enabled: False
+      gitSync:
+        enabled: True
+        repo: https://github.com/Hilalem/airflow-dags.git
+        branch: master
+        maxFailures: 0
+        subpath: ""
+        wait: 60
     
