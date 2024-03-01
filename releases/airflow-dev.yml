@@ -44,6 +44,6 @@ spec:
         repo: https://github.com/Hilalem/airflow-dags.git
         branch: master
         maxFailures: 0
-        subpath: ""
+        subPath: ""
         wait: 60
     
