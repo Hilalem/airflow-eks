@@ -12,15 +12,15 @@ spec:
   chart:
     spec:
       chart: airflow
-      version: "1.12.0"
+      version: "1.11.0"
       sourceRef:
         kind: HelmRepository
         name: apache-airflow
         namespace: flux-system
   #chart values https://github.com/apache/airflow/blob/main/chart/values.yaml
   values:
-    defaultAirflowTag: "2.8.1"
-    airflowVersion: "2.8.1"
+    defaultAirflowTag: "2.7.1"
+    airflowVersion: "2.7.1"
     fernetKey: "zTxhk7FuGqQVPZVoukLn5bGWOrgHzhQnBnaqAItcZGI="
     env:
       - name: "AIRFLOW__CORE__LOAD_EXAMPLES"

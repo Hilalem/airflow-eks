@@ -4,6 +4,14 @@ https://github.com/apache/airflow/blob/main/chart/values.yaml
 https://github.com/airflow-helm/charts/blob/main/charts/airflow/values.yaml
 https://airflow.apache.org/docs/helm-chart/stable/manage-dags-files.html
 
+
+
+Official Helm Chart version
+1.11.0 
+
+Apache Airflow version
+2.7.1
+
 airflow needs to store data in volumes, dynamic volumes as soon as the airflow needs volume k8s cluster will create for us.
 That said in order to create that volume with EBS, we need to install the corresponding driver
 https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/docs/install.md 
