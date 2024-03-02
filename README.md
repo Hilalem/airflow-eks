@@ -33,3 +33,9 @@ helm release object is used to deploy airflow based on its helmchart in cluster
     - helm release is an instance of the chart in cluster
     release name is the release for helm, name is helmrelease for flux (terraform)
     airflow version : version of the airflow to be deployed
+    
+    
+    
+    
+    flux logs --follow --level=error --all-namespaces
+    flux delete helmrelease airflow -n dev
