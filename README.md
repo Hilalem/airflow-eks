@@ -43,7 +43,7 @@ helm release object is used to deploy airflow based on its helmchart in cluster
     
     
     
-        dags:
+   dags:
       persistence:
         enabled: False
       gitSync:
