@@ -1,13 +1,11 @@
-#Helm Release Object to be deployed : release is an intance of a chart in k8s cluster
+
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  #name of the helm release fordeployment tool flux, argocd
   name: airflow
   namespace: dev
 spec:
   interval: 30s
-  #name of the release for helm
   releaseName: airflow-dev
   chart:
     spec:
@@ -17,7 +15,6 @@ spec:
         kind: HelmRepository
         name: apache-airflow
         namespace: flux-system
-  #chart values https://github.com/apache/airflow/blob/main/chart/values.yaml
   values:
     defaultAirflowTag: "2.7.1"
     airflowVersion: "2.7.1"
