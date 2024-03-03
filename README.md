@@ -62,6 +62,24 @@ helm release object is used to deploy airflow based on its helmchart in cluster
     
     
         Ingress:
-    IAM folder contains iam policies, roles, role bindings
-    airflow-rbac-role-alb-ingress.yml 
+    1)IAM folder contains iam policies, roles, role bindings
+    airflow-rbac-role-alb-ingress.yml contains cluster role, cluster role binding and service account used by ingress controller to interact with resources in the eks cluster
+    
+   2) creating the IAM policy will be used by the ingress controller to interact with aws services
+    # Create an IAM policy ALBIngressControllerIAMPolicy to alllow ALB makes API calls on your behalf Copy the Policy.Arn value
+           "Arn": "arn:aws:iam::339712758698:policy/ALBIngressControllerIAMPolicy",
+
+aws iam create-policy \
+    --policy-name ALBIngressControllerIAMPolicy \
+    --policy-document file://airflow-materials-aws/section-7/iam/iam-alb-policy.json
+    
+    arn:aws:iam::339712758698:policy/ALBIngressControllerIAMPolicy    
+3)# Create a service account and an IAM role for the pod running AWS ALB Ingress controller
+eksctl create iamserviceaccount \
+       --cluster=airflow \
+       --namespace=kube-system \
+       --name=alb-ingress-controller \
+       --attach-policy-arn=$PolicyARN \
+       --override-existing-serviceaccounts \
+       --approve
     
